@@ -17,11 +17,11 @@ Language: TypeScript
 
 # 3. Project Structure
 
-src/
-├── config/
-│   ├── db_mysql.ts          # Sequelize MySQL connection
-│   ├── redis.ts              # Redis client
-│   └── twilio.ts             # Twilio client configuration
+-- src/
+-- ├── config/
+-- │   ├── db_mysql.ts          # Sequelize MySQL connection
+-- │   ├── redis.ts              # Redis client
+-- │   └── twilio.ts             # Twilio client configuration
 ├── controllers/
 │   ├── authControllers.ts    # OTP send/verify logic
 │   ├── messageController.ts  # Message retrieval & sending (HTTP)
