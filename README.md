@@ -88,32 +88,32 @@ On startup, Sequelize automatically syncs the models (creates tables if they don
 
 # 6. Database Schema
 
-User Model (users table)
+## User Model (users table)
 
-Column	          Type	                Attributes                 Description
-------------- ----------------- ----------------------------- -----------------------
-id	            INT UNSIGNED	PRIMARY KEY AUTO_INCREMENT	       Unique user ID
-phone_number	STRING(20)	              NOT NULL, UNIQUE	       User's phone number
-name	        STRING(100)		                                   Display name
-profile_pic	    STRING(255)		                                   URL to profile picture
-is_verified	    BOOLEAN	             DEFAULT false	               Phone verification status
-is_active	    BOOLEAN	             DEFAULT true	               Account active/inactive
-created_at	    DATETIME	        DEFAULT CURRENT_TIMESTAMP	   Record creation time
-updated_at	DATETIME	            DEFAULT CURRENT_TIMESTAMP	    Last update time
+#### **Column**	          **Type**	                **Attributes**                 **Description**
+#### ------------- ----------------- ----------------------------- -----------------------
+#### id	            INT UNSIGNED	PRIMARY KEY AUTO_INCREMENT	       Unique user ID
+#### phone_number	STRING(20)	              NOT NULL, UNIQUE	       User's phone number
+#### name	        STRING(100)		                                   Display name
+#### profile_pic	    STRING(255)		                                   URL to profile picture
+#### is_verified	    BOOLEAN	             DEFAULT false	               Phone verification status
+#### is_active	    BOOLEAN	             DEFAULT true	               Account active/inactive
+#### created_at	    DATETIME	        DEFAULT CURRENT_TIMESTAMP	   Record creation time
+#### updated_at	DATETIME	            DEFAULT CURRENT_TIMESTAMP	    Last update time
 
-Message Model (messages table)
+## Message Model (messages table)
 
-Column      	        Type        	            Attributes	               Description
---------------   -------------------      ----------------------      -------------------------
-id	               INT UNSIGNED	        PRIMARY KEY AUTO_INCREMENT	    Unique message ID
-sender_id	       INT UNSIGNED	        NOT NULL, FOREIGN KEY	        References users(id)
-receiver_id	       INT UNSIGNED	        NOT NULL, FOREIGN KEY           References users(id)
-message	            TEXT	            NOT NULL	                    Message content
-message_type	    ENUM	            DEFAULT 'text'	                text/image/video/audio
-is_read	          BOOLEAN	            DEFAULT false	                Read receipt status
-created_at	      DATETIME	            DEFAULT CURRENT_TIMESTAMP	    Timestamp of message
+#### **Column**	          **Type**	                **Attributes**                 **Description**
+#### --------------   -------------------      ----------------------      -------------------------
+#### id	               INT UNSIGNED	        PRIMARY KEY AUTO_INCREMENT	    Unique message ID
+#### sender_id	       INT UNSIGNED	        NOT NULL, FOREIGN KEY	        References users(id)
+#### receiver_id	       INT UNSIGNED	        NOT NULL, FOREIGN KEY           References users(id)
+#### message	            TEXT	            NOT NULL	                    Message content
+#### message_type	    ENUM	            DEFAULT 'text'	                text/image/video/audio
+#### is_read	          BOOLEAN	            DEFAULT false	                Read receipt status
+#### created_at	      DATETIME	            DEFAULT CURRENT_TIMESTAMP	    Timestamp of message
 
-Relationships:
+## Relationships:
 
 A user can have many sent messages (sender_id).
 A user can have many received messages (receiver_id).
