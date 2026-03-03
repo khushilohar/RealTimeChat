@@ -17,8 +17,8 @@ Language: TypeScript
 
 # 3. Project Structure
 
--- src/
--- ├── config/
+#### src/
+#### ├── config/
 -- │   ├── db_mysql.ts          # Sequelize MySQL connection
 -- │   ├── redis.ts              # Redis client
 -- │   └── twilio.ts             # Twilio client configuration
