@@ -19,17 +19,17 @@ Language: TypeScript
 
 #### src/
 #### ├── config/
--- │   ├── db_mysql.ts          # Sequelize MySQL connection
--- │   ├── redis.ts              # Redis client
--- │   └── twilio.ts             # Twilio client configuration
-├── controllers/
-│   ├── authControllers.ts    # OTP send/verify logic
-│   ├── messageController.ts  # Message retrieval & sending (HTTP)
-│   └── userControllers.ts    # User profile & status endpoints
-├── middleware/
-│   ├── auth.ts               # JWT authentication middleware
-│   └── socketMiddleware.ts   # Socket.io authentication & setup
-├── models/
+#### │   ├── db_mysql.ts          # Sequelize MySQL connection
+#### │   ├── redis.ts              # Redis client
+#### │   └── twilio.ts             # Twilio client configuration
+#### ├── controllers/
+#### │   ├── authControllers.ts    # OTP send/verify logic
+#### │   ├── messageController.ts  # Message retrieval & sending (HTTP)
+#### │   └── userControllers.ts    # User profile & status endpoints
+#### ├── middleware/
+#### │   ├── auth.ts               # JWT authentication middleware
+#### │   └── socketMiddleware.ts   # Socket.io authentication & setup
+#### ├── models/
 │   ├── User.ts               # User model
 │   └── Message.ts            # Message model
 ├── routes/
