@@ -30,17 +30,17 @@ Language: TypeScript
 #### │   ├── auth.ts               # JWT authentication middleware
 #### │   └── socketMiddleware.ts   # Socket.io authentication & setup
 #### ├── models/
-│   ├── User.ts               # User model
-│   └── Message.ts            # Message model
-├── routes/
-│   ├── authRoutes.ts         # Authentication routes
-│   ├── messageRoutes.ts      # Message routes
-│   └── userRouters.ts        # User routes
-├── utils/
-│   └── generateOtp.ts        # OTP generator
-├── socket/
-│   └── socketHandler.ts      # Socket event handlers
-└── server.ts                 # Entry point
+#### │   ├── User.ts               # User model
+#### │   └── Message.ts            # Message model
+#### ├── routes/
+#### │   ├── authRoutes.ts         # Authentication routes
+#### │   ├── messageRoutes.ts      # Message routes
+#### │   └── userRouters.ts        # User routes
+#### ├── utils/
+#### │   └── generateOtp.ts        # OTP generator
+#### ├── socket/
+#### │   └── socketHandler.ts      # Socket event handlers
+#### └── server.ts                 # Entry point
 
 
 # 4. Environment Variables
