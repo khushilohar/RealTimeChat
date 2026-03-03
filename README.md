@@ -108,9 +108,9 @@ On startup, Sequelize automatically syncs the models (creates tables if they don
      sender_id         INT UNSIGNED               NOT NULL, FOREIGN KEY    References users(id)
      receiver_id       INT UNSIGNED               NOT NULL, FOREIGN KEY    References users(id)
      message                   TEXT                            NOT NULL         Message content
-     message_type	        ENUM	                      DEFAULT 'text'	 text/image/video/audio
-     is_read	           BOOLEAN	                      DEFAULT false	     Read receipt status
-     created_at	         DATETIME	            DEFAULT CURRENT_TIMESTAMP	  Timestamp of message
+     message_type              ENUM                      DEFAULT 'text'  text/image/video/audio
+     is_read                BOOLEAN                       DEFAULT false     Read receipt status
+     created_at            DATETIME           DEFAULT CURRENT_TIMESTAMP    Timestamp of message
 
 ## Relationships:
 
