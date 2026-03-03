@@ -90,7 +90,7 @@ On startup, Sequelize automatically syncs the models (creates tables if they don
 
 ## User Model (users table)
   ###
-    Column	                Type                        Attributes                    Description
+    Column	                Type                        Attributes                  Description
     ------------- ----------------- ----------------------------- -----------------------------
     id	            INT UNSIGNED        PRIMARY KEY AUTO_INCREMENT               Unique user ID
     phone_number      STRING(20)	              NOT NULL, UNIQUE          User's phone number
