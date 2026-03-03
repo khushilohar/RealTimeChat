@@ -102,8 +102,8 @@ On startup, Sequelize automatically syncs the models (creates tables if they don
 
 ## Message Model (messages table)
   ###
-    Column	          Type	                        Attributes                 Description
-    --------------   -------------------      ----------------------      -------------------------
+    Column	                   Type                          Attributes             Description
+    --------------   -------------------       --------------------------  ----------------------
      id                INT UNSIGNED          PRIMARY KEY AUTO_INCREMENT       Unique message ID
      sender_id         INT UNSIGNED               NOT NULL, FOREIGN KEY    References users(id)
      receiver_id       INT UNSIGNED               NOT NULL, FOREIGN KEY    References users(id)
