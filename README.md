@@ -1,10 +1,10 @@
-1. Introduction
------------------
+# 1. Introduction
+
 This document provides comprehensive technical documentation for the backend service of a WhatsApp-like chat application. The system handles user authentication via OTP, real-time messaging using WebSockets, and persistent storage of messages and user data. It is built with Node.js, Express, Socket.io, MySQL (via Sequelize), Redis, and Twilio for SMS.
 
 
-2. Tech Stack
-----------------
+# 2. Tech Stack
+
 Runtime: Node.js
 Framework: Express.js
 Real-time Communication: Socket.io
@@ -15,8 +15,8 @@ SMS Service: Twilio
 Language: TypeScript
 
 
-3. Project Structure
-------------------------
+# 3. Project Structure
+
 src/
 ├── config/
 │   ├── db_mysql.ts          # Sequelize MySQL connection
