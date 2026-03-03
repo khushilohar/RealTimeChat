@@ -43,30 +43,29 @@ src/
 └── server.ts                 # Entry point
 
 
-4. Environment Variables
----------------------------
-# Server
+# 4. Environment Variables
+### Server
 PORT=8000
 
-# MySQL Database
+### MySQL Database
 DB_NAME=whatsapp_clone
 DB_USER=root
 DB_PASSWORD=yourpassword
 DB_HOST=localhost
 
-# Redis
+### Redis
 REDIS_URL=redis://localhost:6379
 
-# Twilio
+### Twilio
 TWILIO_ACCOUNT_SID=your_account_sid
 TWILIO_AUTH_TOKEN=your_auth_token
 TWILIO_PHONE_NUMBER=+1234567890
 
-# JWT
+### JWT
 JWT_SECRET=your_super_secret_key
 
-5. Setup Instructions
----------------------
+# 5. Setup Instructions
+
 Prerequisites
 
 Node.js (v16+)
@@ -87,8 +86,7 @@ Database Sync
 
 On startup, Sequelize automatically syncs the models (creates tables if they don't exist). Ensure the database is created beforehand.
 
-6. Database Schema
----------------------------
+# 6. Database Schema
 
 User Model (users table)
 
@@ -121,27 +119,24 @@ A user can have many sent messages (sender_id).
 A user can have many received messages (receiver_id).
 
 
-7. Authentication Flow
-----------------------
-OTP Generation & Verification
---------------------------------
-Send OTP: Client provides phone number. Server generates a 6-digit OTP, stores it in Redis with an expiry (e.g., 5 minutes), and sends via Twilio SMS.
+# 7. Authentication Flow
 
-Verify OTP: Client submits phone number and OTP. Server validates against Redis. If correct, user is created/updated and a JWT token is issued.
+## OTP Generation & Verification
+**Send OTP:** Client provides phone number. Server generates a 6-digit OTP, stores it in Redis with an expiry (e.g., 5 minutes), and sends via Twilio SMS.
 
-Redis OTP Key Pattern: otp:<phone_number> with value OTP and TTL.
+**Verify OTP:** Client submits phone number and OTP. Server validates against Redis. If correct, user is created/updated and a JWT token is issued.
+
+**Redis OTP Key Pattern:** otp:<phone_number> with value OTP and TTL.
 
 
-JWT Token
-----------
+## JWT Token
 Generated upon successful OTP verification.
 Contains payload: { id: userId, phone_number: string }.
 Token is sent to client and must be included in Authorization: Bearer <token> header for protected endpoints.
 Tokens can be blacklisted (logout) by storing in Redis with key blacklist:<token>.
 
 
-8. API Endpoints
-----------------
+# 8. API Endpoints
 Base URL: http://localhost:8000 (or your deployed domain)
 
 Authentication Routes (/auth)
@@ -174,8 +169,7 @@ POST	            /	                        Send a new message (HTTP fallback)	  
                                                                                      "Hello", "messageType": "text" }	    { "id": 1, "message": "...", ... }
 
                                                                                      
-9. Socket.io Events
--------------------------
+# 9. Socket.io Events
 Socket.io is used for real-time messaging. Connection requires authentication via token in handshake.
 
 Connection:-
@@ -205,8 +199,7 @@ user_offline	                             userId	                               
 error	                                { message: string }	                                             Error event.
 
 
-10. Middleware
-----------------------
+# 10. Middleware
 Authentication Middleware (auth.ts)
 
 Extracts token from Authorization header.
@@ -222,8 +215,7 @@ Stores userId in socket object and Redis mapping.
 Sets up connection and disconnection handlers.
 
 
-11. Redis Usage
-------------------
+# 11. Redis Usage
 Redis serves multiple purposes:
 
 OTP Storage: Temporary OTP codes with expiry.
@@ -233,16 +225,14 @@ Reverse Mapping: user:<socket.id> → userId for cleanup.
 All Redis keys have appropriate TTLs to prevent stale data.
 
 
-12. Error Handling
---------------------
+# 12. Error Handling
 HTTP: Standard Express error middleware returns JSON with error or message field.
 Socket: Errors are emitted to the client via error event.
 Database: Sequelize validation errors are caught and returned appropriately.
 Unhandled Rejections: Should be logged; production setup should include process-level handlers.
 
 
-13. Deployment Considerations
-----------------------------
+# 13. Deployment Considerations
 Set up environment variables securely.
 Enable CORS only for allowed origins (configured in server.ts).
 Use HTTPS in production.
@@ -251,7 +241,7 @@ Use MySQL replication or clustering for scalability.
 Monitor WebSocket connections with sticky sessions if using multiple nodes (or use Redis adapter for Socket.io).
 
 
-14. Conclusion
+# 14. Conclusion
 ------------------
 This backend provides a solid foundation for a real-time chat application with authentication, messaging, and user management. The code is modular and can be extended with features like group chats, media uploads, and push notifications.
 
