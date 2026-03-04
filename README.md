@@ -16,31 +16,31 @@ Language: TypeScript
 
 
 # 3. Project Structure
-
-#### src/
-#### ├── config/
-#### │   ├── db_mysql.ts          # Sequelize MySQL connection
-#### │   ├── redis.ts              # Redis client
-#### │   └── twilio.ts             # Twilio client configuration
-#### ├── controllers/
-#### │   ├── authControllers.ts    # OTP send/verify logic
-#### │   ├── messageController.ts  # Message retrieval & sending (HTTP)
-#### │   └── userControllers.ts    # User profile & status endpoints
-#### ├── middleware/
-#### │   ├── auth.ts               # JWT authentication middleware
-#### │   └── socketMiddleware.ts   # Socket.io authentication & setup
-#### ├── models/
-#### │   ├── User.ts               # User model
-#### │   └── Message.ts            # Message model
-#### ├── routes/
-#### │   ├── authRoutes.ts         # Authentication routes
-#### │   ├── messageRoutes.ts      # Message routes
-#### │   └── userRouters.ts        # User routes
-#### ├── utils/
-#### │   └── generateOtp.ts        # OTP generator
-#### ├── socket/
-#### │   └── socketHandler.ts      # Socket event handlers
-#### └── server.ts                 # Entry point
+  ###
+    src/
+    ├── config/
+    │   ├── db_mysql.ts          # Sequelize MySQL connection
+    │   ├── redis.ts              # Redis client
+    │   └── twilio.ts             # Twilio client configuration
+    ├── controllers/
+    │   ├── authControllers.ts    # OTP send/verify logic
+    │   ├── messageController.ts  # Message retrieval & sending (HTTP)
+    │   └── userControllers.ts    # User profile & status endpoints
+    ├── middleware/
+    │   ├── auth.ts               # JWT authentication middleware
+    │   └── socketMiddleware.ts   # Socket.io authentication & setup
+    ├── models/
+    │   ├── User.ts               # User model
+    │   └── Message.ts            # Message model
+    ├── routes/
+    │   ├── authRoutes.ts         # Authentication routes
+    │   ├── messageRoutes.ts      # Message routes
+    │   └── userRouters.ts        # User routes
+    ├── utils/
+    │   └── generateOtp.ts        # OTP generator
+    ├── socket/
+    │   └── socketHandler.ts      # Socket event handlers
+    └── server.ts                 # Entry point
 
 
 # 4. Environment Variables
